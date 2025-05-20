@@ -279,7 +279,7 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 25,
+      gap: 5,
       direction: "column",
     }).join("");
   });
