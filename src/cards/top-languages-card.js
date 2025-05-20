@@ -266,7 +266,7 @@ const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
  */
 const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
   const longestLang = getLongestLang(langs);
-  const chunked = chunkArray(langs, Math.ceil(langs.length / 3));
+  const chunked = chunkArray(langs, Math.ceil(langs.length / 2));
   const layouts = chunked.map((array) => {
     // @ts-ignore
     const items = array.map((lang, index) =>
@@ -279,14 +279,14 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 25,
+      gap: 0,
       direction: "column",
     }).join("");
   });
 
   const percent = ((longestLang.size / totalSize) * 100).toFixed(2);
   const minGap = 150;
-  const maxGap = 100 + measureText(`${longestLang.name} ${percent}%`, 11);
+  const maxGap = 20 + measureText(`${longestLang.name} ${percent}%`, 11);
   return flexLayout({
     items: layouts,
     gap: maxGap < minGap ? minGap : maxGap,
