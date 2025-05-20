@@ -266,7 +266,7 @@ const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
  */
 const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
   const longestLang = getLongestLang(langs);
-  const chunked = chunkArray(langs, Math.ceil(langs.length / 3));
+  const chunked = chunkArray(langs, Math.ceil(langs.length / 2));
   const layouts = chunked.map((array) => {
     // @ts-ignore
     const items = array.map((lang, index) =>
@@ -279,7 +279,7 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 5,
+      gap: 0,
       direction: "column",
     }).join("");
   });
@@ -289,7 +289,7 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
   const maxGap = measureText(`${longestLang.name} ${percent}%`, 11);
   return flexLayout({
     items: layouts,
-    gap: 10, // maxGap < minGap ? minGap : maxGap,
+    gap: 0, // maxGap < minGap ? minGap : maxGap,
   }).join("");
 };
 
@@ -353,7 +353,7 @@ const renderNormalLayout = (langs, width, totalLanguageSize) => {
  */
 const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const paddingRight = 50;
-  const offsetWidth = 0 //width - paddingRight;
+  const offsetWidth = width - paddingRight;
   // progressOffset holds the previous language's width and used to offset the next language
   // so that we can stack them one after another, like this: [--][----][---]
   let progressOffset = 0;
@@ -371,7 +371,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
           data-testid="lang-progress"
           x="${progressOffset}"
           y="0"
-          width="0"
+          width="${progress}"
           height="8"
           fill="${lang.color || "#858585"}"
         />
