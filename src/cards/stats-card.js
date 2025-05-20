@@ -12,12 +12,12 @@ import {
 } from "../common/utils.js";
 import { statCardLocales } from "../translations.js";
 
-const CARD_MIN_WIDTH = 287;
-const CARD_DEFAULT_WIDTH = 287;
-const RANK_CARD_MIN_WIDTH = 300;
-const RANK_CARD_DEFAULT_WIDTH = 450;
-const RANK_ONLY_CARD_MIN_WIDTH = 290;
-const RANK_ONLY_CARD_DEFAULT_WIDTH = 290;
+const CARD_MIN_WIDTH = 250;
+const CARD_DEFAULT_WIDTH = 250;
+const RANK_CARD_MIN_WIDTH = 270;
+const RANK_CARD_DEFAULT_WIDTH = 300;
+const RANK_ONLY_CARD_MIN_WIDTH = 250;
+const RANK_ONLY_CARD_DEFAULT_WIDTH = 250;
 
 /**
  * Create a stats card text item.
@@ -426,7 +426,7 @@ const renderStatsCard = (stats, options = {}) => {
   const minCardWidth =
     (hide_rank
       ? clampValue(
-          50 /* padding */ + calculateTextWidth() * 2,
+          30 /* padding */ + calculateTextWidth() * 2,
           CARD_MIN_WIDTH,
           Infinity,
         )
