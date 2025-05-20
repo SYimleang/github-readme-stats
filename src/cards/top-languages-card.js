@@ -110,7 +110,7 @@ const getCircleLength = (radius) => {
  * @returns {number} Card height.
  */
 const calculateCompactLayoutHeight = (totalLangs) => {
-  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 3) * 25;
+  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 2) * 25;
 };
 
 /**
@@ -266,7 +266,7 @@ const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
  */
 const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
   const longestLang = getLongestLang(langs);
-  const chunked = chunkArray(langs, Math.ceil(langs.length / 2));
+  const chunked = chunkArray(langs, langs.length / 2);
   const layouts = chunked.map((array) => {
     // @ts-ignore
     const items = array.map((lang, index) =>
@@ -279,14 +279,14 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 15,
+      gap: 25,
       direction: "column",
     }).join("");
   });
 
   const percent = ((longestLang.size / totalSize) * 100).toFixed(2);
-  const minGap = 100;
-  const maxGap = measureText(`${longestLang.name} ${percent}%`, 11);
+  const minGap = 150;
+  const maxGap = 20 + measureText(`${longestLang.name} ${percent}%`, 11);
   return flexLayout({
     items: layouts,
     gap: maxGap < minGap ? minGap : maxGap,
@@ -360,7 +360,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const compactProgressBar = langs
     .map((lang) => {
       const percentage = parseFloat(
-        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(3),
+        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(2),
       );
 
       const progress = percentage < 10 ? percentage + 10 : percentage;
