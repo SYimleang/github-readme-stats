@@ -353,7 +353,7 @@ const renderNormalLayout = (langs, width, totalLanguageSize) => {
  */
 const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const paddingRight = 50;
-  const offsetWidth = width - paddingRight;
+  const offsetWidth = 0 //width - paddingRight;
   // progressOffset holds the previous language's width and used to offset the next language
   // so that we can stack them one after another, like this: [--][----][---]
   let progressOffset = 0;
