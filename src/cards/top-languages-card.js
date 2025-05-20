@@ -279,13 +279,13 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 10,
+      gap: 25,
       direction: "column",
     }).join("");
   });
 
   const percent = ((longestLang.size / totalSize) * 100).toFixed(2);
-  const minGap = 150;
+  const minGap = 100;
   const maxGap = 20 + measureText(`${longestLang.name} ${percent}%`, 11);
   return flexLayout({
     items: layouts,
