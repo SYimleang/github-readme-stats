@@ -279,7 +279,7 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
     );
     return flexLayout({
       items,
-      gap: 25,
+      gap: 10,
       direction: "column",
     }).join("");
   });
@@ -352,7 +352,7 @@ const renderNormalLayout = (langs, width, totalLanguageSize) => {
  * @returns {string} Compact layout card SVG object.
  */
 const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
-  const paddingRight = 20;
+  const paddingRight = 50;
   const offsetWidth = width - paddingRight;
   // progressOffset holds the previous language's width and used to offset the next language
   // so that we can stack them one after another, like this: [--][----][---]
