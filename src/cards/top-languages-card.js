@@ -266,7 +266,7 @@ const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
  */
 const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
   const longestLang = getLongestLang(langs);
-  const chunked = chunkArray(langs, langs.length / 3);
+  const chunked = chunkArray(langs, Math.ceil(langs.length / 3));
   const layouts = chunked.map((array) => {
     // @ts-ignore
     const items = array.map((lang, index) =>
@@ -360,7 +360,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const compactProgressBar = langs
     .map((lang) => {
       const percentage = parseFloat(
-        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(2),
+        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(3),
       );
 
       const progress = percentage < 10 ? percentage + 10 : percentage;
