@@ -14,7 +14,7 @@ import { statCardLocales } from "../translations.js";
 
 const CARD_MIN_WIDTH = 287;
 const CARD_DEFAULT_WIDTH = 287;
-const RANK_CARD_MIN_WIDTH = 420;
+const RANK_CARD_MIN_WIDTH = 300;
 const RANK_CARD_DEFAULT_WIDTH = 450;
 const RANK_ONLY_CARD_MIN_WIDTH = 290;
 const RANK_ONLY_CARD_DEFAULT_WIDTH = 290;
@@ -82,7 +82,7 @@ const createTextNode = ({
  * @returns {number} Progress value.
  */
 const calculateCircleProgress = (value) => {
-  const radius = 40;
+  const radius = 35;
   const c = Math.PI * (radius * 2);
 
   if (value < 0) {
