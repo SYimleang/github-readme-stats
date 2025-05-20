@@ -286,7 +286,7 @@ const createLanguageTextNode = ({ langs, totalSize, hideProgress }) => {
 
   const percent = ((longestLang.size / totalSize) * 100).toFixed(2);
   const minGap = 100;
-  const maxGap = 20 + measureText(`${longestLang.name} ${percent}%`, 11);
+  const maxGap = measureText(`${longestLang.name} ${percent}%`, 11);
   return flexLayout({
     items: layouts,
     gap: maxGap < minGap ? minGap : maxGap,
