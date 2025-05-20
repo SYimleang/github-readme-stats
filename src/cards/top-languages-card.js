@@ -371,7 +371,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
           data-testid="lang-progress"
           x="${progressOffset}"
           y="0"
-          width="${progress}"
+          width="0"
           height="8"
           fill="${lang.color || "#858585"}"
         />
