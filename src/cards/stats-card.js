@@ -493,7 +493,7 @@ const renderStatsCard = (stats, options = {}) => {
         return minXTranslation + (width - minCardWidth-1000) / 2;
       }
     } else {
-      return width / 2 + 20 - 1000;
+      return width / 2 + 20 - 100;
     }
   };
 
