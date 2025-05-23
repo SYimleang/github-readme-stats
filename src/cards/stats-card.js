@@ -488,7 +488,7 @@ const renderStatsCard = (stats, options = {}) => {
       const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 70;
       if (width > RANK_CARD_DEFAULT_WIDTH) {
         const xMaxExpansion = minXTranslation + (450 - minCardWidth) / 2;
-        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH - 1000;
+        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH - 100;
       } else {
         return minXTranslation + (width - minCardWidth-100) / 2;
       }
