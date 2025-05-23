@@ -490,7 +490,7 @@ const renderStatsCard = (stats, options = {}) => {
         const xMaxExpansion = minXTranslation + (450 - minCardWidth) / 2;
         return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH - 1000;
       } else {
-        return minXTranslation + (width - minCardWidth-1000) / 2;
+        return minXTranslation + (width - minCardWidth-100) / 2;
       }
     } else {
       return width / 2 + 20 - 100;
