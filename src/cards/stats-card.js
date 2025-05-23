@@ -12,12 +12,12 @@ import {
 } from "../common/utils.js";
 import { statCardLocales } from "../translations.js";
 
-const CARD_MIN_WIDTH = 250;
-const CARD_DEFAULT_WIDTH = 250;
-const RANK_CARD_MIN_WIDTH = 270;
-const RANK_CARD_DEFAULT_WIDTH = 300;
-const RANK_ONLY_CARD_MIN_WIDTH = 250;
-const RANK_ONLY_CARD_DEFAULT_WIDTH = 250;
+const CARD_MIN_WIDTH = 287;
+const CARD_DEFAULT_WIDTH = 287;
+const RANK_CARD_MIN_WIDTH = 350;
+const RANK_CARD_DEFAULT_WIDTH = 450;
+const RANK_ONLY_CARD_MIN_WIDTH = 290;
+const RANK_ONLY_CARD_DEFAULT_WIDTH = 290;
 
 /**
  * Create a stats card text item.
@@ -82,7 +82,7 @@ const createTextNode = ({
  * @returns {number} Progress value.
  */
 const calculateCircleProgress = (value) => {
-  const radius = 35;
+  const radius = 40;
   const c = Math.PI * (radius * 2);
 
   if (value < 0) {
@@ -426,7 +426,7 @@ const renderStatsCard = (stats, options = {}) => {
   const minCardWidth =
     (hide_rank
       ? clampValue(
-          30 /* padding */ + calculateTextWidth() * 2,
+          50 /* padding */ + calculateTextWidth() * 2,
           CARD_MIN_WIDTH,
           Infinity,
         )
