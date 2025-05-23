@@ -485,9 +485,9 @@ const renderStatsCard = (stats, options = {}) => {
    */
   const calculateRankXTranslation = () => {
     if (statItems.length) {
-      const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 0;
+      const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 1000;
       if (width > RANK_CARD_DEFAULT_WIDTH) {
-        const xMaxExpansion = minXTranslation + (450 - minCardWidth) / 2;
+        const xMaxExpansion = minXTranslation + (450 - minCardWidth - 500) / 2;
         return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH;
       } else {
         return minXTranslation + (width - minCardWidth) / 2;
