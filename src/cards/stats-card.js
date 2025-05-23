@@ -426,7 +426,7 @@ const renderStatsCard = (stats, options = {}) => {
   const minCardWidth =
     (hide_rank
       ? clampValue(
-          50 /* padding */ + calculateTextWidth() * 2,
+           /* padding */  calculateTextWidth() * 2,
           CARD_MIN_WIDTH,
           Infinity,
         )
