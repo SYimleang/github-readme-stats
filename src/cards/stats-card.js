@@ -14,8 +14,8 @@ import { statCardLocales } from "../translations.js";
 
 const CARD_MIN_WIDTH = 287;
 const CARD_DEFAULT_WIDTH = 287;
-const RANK_CARD_MIN_WIDTH = 350;
-const RANK_CARD_DEFAULT_WIDTH = 400;
+const RANK_CARD_MIN_WIDTH = 420;
+const RANK_CARD_DEFAULT_WIDTH = 450;
 const RANK_ONLY_CARD_MIN_WIDTH = 290;
 const RANK_ONLY_CARD_DEFAULT_WIDTH = 290;
 
@@ -376,7 +376,7 @@ const renderStatsCard = (stats, options = {}) => {
         unitSymbol: STATS[key].unitSymbol,
         index,
         showIcons: show_icons,
-        shiftValuePos: 59.01 + (isLongLocale ? 50 : 0),
+        shiftValuePos: 79.01 + (isLongLocale ? 50 : 0),
         bold: text_bold,
         number_format,
       }),
@@ -422,11 +422,11 @@ const renderStatsCard = (stats, options = {}) => {
     When hide_rank=false, the minimum card_width is 340 px + the icon width (if show_icons=true).
     Numbers are picked by looking at existing dimensions on production.
   */
-  const iconWidth = show_icons && statItems.length ?  /* padding */ 1 : 0;
+  const iconWidth = show_icons && statItems.length ? 16 + /* padding */ 1 : 0;
   const minCardWidth =
     (hide_rank
       ? clampValue(
-           /* padding */  calculateTextWidth() * 2,
+          50 /* padding */ + calculateTextWidth() * 2,
           CARD_MIN_WIDTH,
           Infinity,
         )
@@ -488,12 +488,12 @@ const renderStatsCard = (stats, options = {}) => {
       const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 70;
       if (width > RANK_CARD_DEFAULT_WIDTH) {
         const xMaxExpansion = minXTranslation + (450 - minCardWidth) / 2;
-        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH - 100;
+        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH;
       } else {
-        return minXTranslation + (width - minCardWidth-100) / 2;
+        return minXTranslation + (width - minCardWidth) / 2;
       }
     } else {
-      return width / 2 + 20 - 100;
+      return width / 2 + 20 - 10;
     }
   };
 
