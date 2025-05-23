@@ -485,15 +485,15 @@ const renderStatsCard = (stats, options = {}) => {
    */
   const calculateRankXTranslation = () => {
     if (statItems.length) {
-      const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 1000;
+      const minXTranslation = RANK_CARD_MIN_WIDTH + iconWidth - 70;
       if (width > RANK_CARD_DEFAULT_WIDTH) {
-        const xMaxExpansion = minXTranslation + (450 - minCardWidth - 500) / 2;
-        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH;
+        const xMaxExpansion = minXTranslation + (450 - minCardWidth) / 2;
+        return xMaxExpansion + width - RANK_CARD_DEFAULT_WIDTH - 1000;
       } else {
-        return minXTranslation + (width - minCardWidth) / 2;
+        return minXTranslation + (width - minCardWidth-1000) / 2;
       }
     } else {
-      return width / 2 + 20 - 10;
+      return width / 2 + 20 - 1000;
     }
   };
 
